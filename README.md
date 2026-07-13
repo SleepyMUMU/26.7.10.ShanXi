@@ -8,17 +8,17 @@
 | 统计项 | 数值 | 占比 / 进度条 / 变化量 |
 | :--- | :---: | :--- |
 | **总图片数 (Total)** | **171** | `[████████████████████]` 100.0% |
-| **已标记 (Completed)** | **83** | `[██████████░░░░░░░░░░]` 48.5% (较上次 **+0** ⚪) |
-| **未标记 (Remaining)** | **88** | `[░░░░░░░░░░░░░░░░░░░░]` 51.5% |
+| **已标记 (Completed)** | **93** | `[███████████░░░░░░░░░]` 54.4% (较上次 **+10** 🟢) |
+| **未标记 (Remaining)** | **78** | `[░░░░░░░░░░░░░░░░░░░░]` 45.6% |
 
 **当前总体进度：**
-![Progress Badge](https://img.shields.io/badge/Progress-83%20%2F%20171%20(48.5%25)-blue?style=for-the-badge&logo=github)
+![Progress Badge](https://img.shields.io/badge/Progress-93%20%2F%20171%20(54.4%25)-blue?style=for-the-badge&logo=github)
 
 ### 📈 标注进度趋势折线图
-![标注进度趋势](https://github.com/SleepyMUMU/26.7.10.ShanXi/blob/assets/progress_chart.svg?raw=true&v=1783915272)
+![标注进度趋势](https://github.com/SleepyMUMU/26.7.10.ShanXi/blob/assets/progress_chart.svg?raw=true&v=1783915427)
 
 ---
-*📅 统计更新时间：2026-07-13 04:01:12 (UTC)*
+*📅 统计更新时间：2026-07-13 04:03:47 (UTC)*
 
 ---
 ## 👥 多人协作说明
