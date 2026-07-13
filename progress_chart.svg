@@ -11,12 +11,15 @@
   <text x="45" y="63.0" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#6b7280" text-anchor="end">80%</text>
   <line x1="55" y1="30.0" x2="570" y2="30.0" stroke="#e5e7eb" stroke-dasharray="4,4" stroke-width="1" />
   <text x="45" y="34.0" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#6b7280" text-anchor="end">100%</text>
-  <polygon points="55.0,175 55.0,132.60233918128654 570.0,131.75438596491227 570.0,175" fill="url(#grid-grad)" />
-  <polyline points="55.0,132.60233918128654 570.0,131.75438596491227" fill="none" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+  <polygon points="55.0,175 55.0,132.60233918128654 312.5,131.75438596491227 570.0,132.60233918128654 570.0,175" fill="url(#grid-grad)" />
+  <polyline points="55.0,132.60233918128654 312.5,131.75438596491227 570.0,132.60233918128654" fill="none" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
   <circle cx="55.0" cy="132.60233918128654" r="4" fill="#ffffff" stroke="#3b82f6" stroke-width="2" />
   <text x="55.0" y="122.60233918128654" font-family="system-ui, -apple-system, sans-serif" font-size="9" font-weight="bold" fill="#2563eb" text-anchor="middle">29.2%</text>
   <text x="55.0" y="190" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#6b7280" text-anchor="end" transform="rotate(-25, 55.0, 190)">07-13 10:45</text>
-  <circle cx="570.0" cy="131.75438596491227" r="4" fill="#ffffff" stroke="#3b82f6" stroke-width="2" />
-  <text x="570.0" y="121.75438596491227" font-family="system-ui, -apple-system, sans-serif" font-size="9" font-weight="bold" fill="#2563eb" text-anchor="middle">29.8%</text>
-  <text x="570.0" y="190" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#6b7280" text-anchor="end" transform="rotate(-25, 570.0, 190)">07-13 10:49</text>
+  <circle cx="312.5" cy="131.75438596491227" r="4" fill="#ffffff" stroke="#3b82f6" stroke-width="2" />
+  <text x="312.5" y="121.75438596491227" font-family="system-ui, -apple-system, sans-serif" font-size="9" font-weight="bold" fill="#2563eb" text-anchor="middle">29.8%</text>
+  <text x="312.5" y="190" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#6b7280" text-anchor="end" transform="rotate(-25, 312.5, 190)">07-13 10:49</text>
+  <circle cx="570.0" cy="132.60233918128654" r="4" fill="#ffffff" stroke="#3b82f6" stroke-width="2" />
+  <text x="570.0" y="122.60233918128654" font-family="system-ui, -apple-system, sans-serif" font-size="9" font-weight="bold" fill="#2563eb" text-anchor="middle">29.2%</text>
+  <text x="570.0" y="190" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#6b7280" text-anchor="end" transform="rotate(-25, 570.0, 190)">07-13 10:52</text>
 </svg>
