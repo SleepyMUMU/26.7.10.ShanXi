@@ -217,7 +217,7 @@ def main():
 ![Progress Badge](https://img.shields.io/badge/Progress-{completed_labels}%20%2F%20{total_imgs}%20({percent:.1f}%25)-blue?style=for-the-badge&logo=github)
 
 ### 📈 标注进度趋势折线图
-![标注进度趋势](https://github.com/SleepyMUMU/26.7.10.ShanXi/blob/assets/progress_chart.svg?raw=true&v={timestamp})
+![标注进度趋势](https://raw.githubusercontent.com/SleepyMUMU/26.7.10.ShanXi/assets/progress_chart.svg?v={timestamp})
 
 ---
 *📅 统计更新时间：{now_str} (UTC)*
