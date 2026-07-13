@@ -2,28 +2,13 @@
 import os
 import json
 import datetime
-import subprocess
-import sys
 
-# 图像格式后缀
-IMG_EXTENSIONS = ('.png', '.jpg', '.jpeg', '.bmp', '.tiff', '.gif', '.PNG', '.JPG', '.JPEG', '.BMP')
-
-def run_git_add(files):
-    """在本地运行 git add 将文件加入暂存区"""
-    try:
-        # 检查是否在 git 仓库中
-        res = subprocess.run(['git', 'rev-parse', '--is-inside-work-tree'], 
-                             stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-        if res.returncode == 0:
-            for f in files:
-                if os.path.exists(f):
-                    subprocess.run(['git', 'add', f])
-    except Exception as e:
-        print(f"[Warning] Failed to run git add: {e}")
+# 获取当前脚本所在的绝对路径作为基准路径
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 def generate_svg(history):
     """使用纯 Python 标准库生成精美的 SVG 进度折线图"""
-    # 限制折线图最多只展示最近的 12 个数据点，防止图表过于拥挤
+    # 限制折线图最多只展示最近 of 12 个数据点，防止图表过于拥挤
     plot_data = history[-12:] if len(history) > 12 else history
     
     width = 600
@@ -57,14 +42,13 @@ def generate_svg(history):
             f'  <line x1="{margin_left}" y1="{y_val}" x2="{width - margin_right}" y2="{y_val}" '
             f'stroke="#e5e7eb" stroke-dasharray="4,4" stroke-width="1" />'
         )
-        # Y 轴文字 (自适应颜色，使用中性灰以兼容 GitHub 黑暗模式)
+        # Y 轴文字
         svg_parts.append(
             f'  <text x="{margin_left - 10}" y="{y_val + 4}" font-family="system-ui, -apple-system, sans-serif" '
             f'font-size="10" fill="#6b7280" text-anchor="end">{tick}%</text>'
         )
         
     if not plot_data:
-        # 无数据时的占位显示
         svg_parts.append(
             f'  <text x="{width / 2}" y="{height / 2}" font-family="system-ui, -apple-system, sans-serif" '
             f'font-size="14" fill="#9ca3af" text-anchor="middle">暂无标注历史数据</text>'
@@ -72,33 +56,28 @@ def generate_svg(history):
         svg_parts.append('</svg>')
         return "\n".join(svg_parts)
 
-    # 计算每个数据点的坐标
     points = []
     for idx, pt in enumerate(plot_data):
         completed = pt.get('completed', 0)
         total = pt.get('total', 1)
         percent = (completed / total * 100) if total > 0 else 0
         
-        # 计算 X 坐标
         if len(plot_data) == 1:
             x_val = margin_left + chart_w / 2
         else:
             x_val = margin_left + idx * (chart_w / (len(plot_data) - 1))
             
-        # 计算 Y 坐标
         y_val = margin_top + chart_h - (percent / 100.0) * chart_h
         
-        # 解析时间，截取短格式 MM-DD HH:MM
         time_str = pt.get('time', '')
         try:
             dt = datetime.datetime.strptime(time_str, '%Y-%m-%d %H:%M:%S')
             short_time = dt.strftime('%m-%d %H:%M')
         except:
-            short_time = time_str[:11] # 兜底截取
+            short_time = time_str[:11]
             
         points.append((x_val, y_val, completed, percent, short_time))
 
-    # 1. 绘制渐变填充区域 (仅在数据点多于1个时绘制)
     if len(points) > 1:
         path_coords = [f"{points[0][0]},{margin_top + chart_h}"]
         for x, y, _, _, _ in points:
@@ -107,24 +86,20 @@ def generate_svg(history):
         path_str = " ".join(path_coords)
         svg_parts.append(f'  <polygon points="{path_str}" fill="url(#grid-grad)" />')
 
-    # 2. 绘制折线
     poly_coords = " ".join([f"{x},{y}" for x, y, _, _, _ in points])
     svg_parts.append(
         f'  <polyline points="{poly_coords}" fill="none" stroke="#3b82f6" stroke-width="2.5" '
         f'stroke-linecap="round" stroke-linejoin="round" />'
     )
 
-    # 3. 绘制数据点小圆圈、数值标注和 X 轴时间标签
     for idx, (x, y, comp_num, pct, short_time) in enumerate(points):
-        # 数据点小圆圈
         svg_parts.append(
             f'  <circle cx="{x}" cy="{y}" r="4" fill="#ffffff" stroke="#3b82f6" stroke-width="2" />'
         )
         
-        # 数据点数值标注 (如 20.5%)，隔点显示或在最后一个点必定显示，防止过于拥挤
         show_text = True
         if len(points) > 6 and idx % 2 != 0 and idx != len(points) - 1:
-            show_text = False # 点太多时，奇数点不标文字，只保留偶数点和最后一个点
+            show_text = False
             
         if show_text:
             svg_parts.append(
@@ -132,7 +107,6 @@ def generate_svg(history):
                 f'font-size="9" font-weight="bold" fill="#2563eb" text-anchor="middle">{pct:.1f}%</text>'
             )
             
-        # X 轴时间标签 (倾斜 30 度显示，显得更美观专业)
         svg_parts.append(
             f'  <text x="{x}" y="{margin_top + chart_h + 15}" font-family="system-ui, -apple-system, sans-serif" '
             f'font-size="9" fill="#6b7280" text-anchor="end" '
@@ -143,33 +117,35 @@ def generate_svg(history):
     return "\n".join(svg_parts)
 
 def main():
-    # 1. 扫描当前文件夹中的图片和 JSON 标注
-    files = os.listdir('.')
-    img_files = []
+    # 1. 从 config.json 读取总数
+    config_file = os.path.join(BASE_DIR, 'config.json')
+    total_imgs = 0
+    if os.path.exists(config_file):
+        try:
+            with open(config_file, 'r', encoding='utf-8') as f:
+                config = json.load(f)
+                total_imgs = config.get('total_images', 0)
+        except Exception as e:
+            print(f"[Error] Failed to read config.json: {e}")
+            
+    # 2. 扫描当前文件夹中的 JSON 标注文件数量作为完成数
+    files = os.listdir(BASE_DIR)
     json_files = []
     
     for f in files:
-        if os.path.isfile(f):
+        full_path = os.path.join(BASE_DIR, f)
+        if os.path.isfile(full_path):
             name, ext = os.path.splitext(f)
-            ext_lower = ext.lower()
-            if ext_lower in IMG_EXTENSIONS:
-                img_files.append(name)
-            elif ext_lower == '.json':
-                # 排除历史记录文件本身，防止将其算作标注数据
-                if name != 'progress_history':
-                    json_files.append(name)
-                    
-    img_set = set(img_files)
-    json_set = set(json_files)
-    
-    total_imgs = len(img_set)
-    completed_labels = len(img_set.intersection(json_set))
-    remaining_imgs = total_imgs - completed_labels
+            if ext.lower() == '.json' and name not in ('progress_history', 'config'):
+                json_files.append(name)
+                
+    completed_labels = len(set(json_files))
+    remaining_imgs = max(0, total_imgs - completed_labels)
     
     percent = (completed_labels / total_imgs * 100) if total_imgs > 0 else 0.0
 
-    # 2. 读写 progress_history.json 并计算增量
-    history_file = 'progress_history.json'
+    # 3. 读写 progress_history.json 并计算增量
+    history_file = os.path.join(BASE_DIR, 'progress_history.json')
     history = []
     
     if os.path.exists(history_file):
@@ -181,14 +157,10 @@ def main():
             history = []
 
     # 计算较上一次的增量
-    if history:
-        last_completed = history[-1].get('completed', 0)
-    else:
-        last_completed = 0
-        
+    last_completed = history[-1].get('completed', 0) if history else 0
     delta = completed_labels - last_completed
     
-    # 仅在有进度变化（delta != 0）或者历史记录为空时，追加新的历史记录节点
+    # 追加新的历史记录节点
     now_str = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     if delta != 0 or len(history) == 0:
         history.append({
@@ -202,22 +174,20 @@ def main():
         except Exception as e:
             print(f"[Error] Failed to save history: {e}")
 
-    # 3. 生成 SVG 趋势折线图
+    # 4. 生成 SVG 趋势折线图
     svg_content = generate_svg(history)
-    svg_file = 'progress_chart.svg'
+    svg_file = os.path.join(BASE_DIR, 'progress_chart.svg')
     try:
         with open(svg_file, 'w', encoding='utf-8') as fs:
             fs.write(svg_content)
     except Exception as e:
         print(f"[Error] Failed to write SVG chart: {e}")
 
-    # 4. 生成 README.md 模板内容
-    # 渲染 Markdown 进度条字符 (20格)
+    # 5. 生成 README.md 模板内容
     bar_length = 20
     filled_length = int(round(bar_length * (percent / 100.0))) if total_imgs > 0 else 0
     bar = '█' * filled_length + '░' * (bar_length - filled_length)
     
-    # 格式化增量展示文字
     if delta > 0:
         delta_str = f" (较上次 **+{delta}** 🟢)"
     elif delta < 0:
@@ -228,7 +198,7 @@ def main():
     readme_content = f"""# 🗺️ 陕西省榆林市标注项目进度 (26.7.10.ShanXi)
 
 > [!NOTE]
-> 本仓库仅同步 Labelme 标注所生成的 JSON 数据。图片文件保留在本地不进行上传。进度信息和趋势图表在每次本地提交时自动统计更新。
+> 本仓库仅同步 Labelme 标注所生成的 JSON 数据。图片总数在 `config.json` 中配置，GitHub Actions 会在每次推送时自动统计当前的 JSON 文件数量并更新此看板。
 
 ### 📊 标注状态看板
 
@@ -245,24 +215,23 @@ def main():
 ![标注进度趋势](progress_chart.svg)
 
 ---
-*📅 统计更新时间：{now_str} (本地)*
+*📅 统计更新时间：{now_str} (UTC)*
 
 ---
 ## 👥 多人协作说明
-如果您是本项目的新协作者，拉取代码后只需双击运行目录下的 **`setup_hooks.bat`** 即可在本地激活自动统计 Hook。
-激活后，您每次进行 `git commit` 时，该脚本均会自动统计您的进度并更新 `README.md` 一并提交，无需手动操作。
+本项目已全面接入 **GitHub Actions**。作为协作者，您**无需**在本地运行任何脚本或配置任何 Git 钩子。
+只要您正常将 `.json` 文件 `git push` 到仓库，云端就会自动计算并更新此 README 文件和趋势图！
+（如果您向本地库新增了待标注图片，请顺手修改 `config.json` 中的 `total_images` 数值即可。）
 """
 
-    # 5. 写入 README.md
+    # 6. 写入 README.md
+    readme_path = os.path.join(BASE_DIR, 'README.md')
     try:
-        with open('README.md', 'w', encoding='utf-8') as fr:
+        with open(readme_path, 'w', encoding='utf-8') as fr:
             fr.write(readme_content)
-        print("[Success] README.md and SVG chart updated successfully.")
+        print("[Success] README.md and SVG chart updated successfully via GitHub Actions.")
     except Exception as e:
         print(f"[Error] Failed to write README.md: {e}")
-
-    # 6. 如果在 Git 提交流程中，自动将生成的文件加入本次 commit
-    run_git_add(['README.md', 'progress_history.json', 'progress_chart.svg'])
 
 if __name__ == '__main__':
     main()
