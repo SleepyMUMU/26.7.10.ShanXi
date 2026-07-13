@@ -29,6 +29,7 @@ jobs:
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add README.md progress_history.json progress_chart.svg
+          git add README.md progress_history.json
+          git rm -f progress_chart.svg 2>/dev/null || true
           # Only commit if there are changes
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update progress README and Chart" && git push)
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update progress README (Text mode)" && git push)
