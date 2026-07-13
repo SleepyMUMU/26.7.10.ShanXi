@@ -222,6 +222,11 @@ def main():
 本项目已全面接入 **GitHub Actions**。作为协作者，您**无需**在本地运行任何脚本或配置任何 Git 钩子。
 只要您正常将 `.json` 文件 `git push` 到仓库，云端就会自动计算并更新此 README 文件和趋势图！
 （如果您向本地库新增了待标注图片，请顺手修改 `config.json` 中的 `total_images` 数值即可。）
+
+---
+<div align="center">
+  <sub>🤖 Automated by <b>Antigravity AI</b></sub>
+</div>
 """
 
     # 6. 写入 README.md
