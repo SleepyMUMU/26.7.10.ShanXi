@@ -3,7 +3,7 @@
 !.gitignore
 !README.md
 !update_readme.py
-!update_readme.bat
-!setup_hooks.bat
 !progress_history.json
 !progress_chart.svg
+!.github/
+!.github/**
