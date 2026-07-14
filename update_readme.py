@@ -8,11 +8,11 @@ import hashlib
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 def get_file_hash(filepath):
-    """计算文件的 SHA-256 哈希值"""
+    """计算文件的 SHA-256 哈希值，忽略跨平台换行符差异"""
     hasher = hashlib.sha256()
-    with open(filepath, 'rb') as f:
-        buf = f.read()
-        hasher.update(buf)
+    with open(filepath, 'r', encoding='utf-8') as f:
+        content = f.read().replace('\r\n', '\n')
+        hasher.update(content.encode('utf-8'))
     return hasher.hexdigest()
 
 def get_beijing_today():
@@ -40,10 +40,6 @@ def migrate_old_history(old_data):
     elif isinstance(old_data, dict) and "daily_stats" in old_data:
         new_data = old_data
     return new_data
-
-def generate_svg(daily_stats):
-    """预留供后续可能分离逻辑使用，当前内联在 main 中"""
-    pass
 
 def main():
     today, now_str = get_beijing_today()
