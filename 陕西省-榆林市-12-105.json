@@ -321,6 +321,28 @@
       "shape_type": "polygon",
       "flags": {},
       "mask": null
+    },
+    {
+      "label": "3",
+      "points": [
+        [
+          1.7207207207207418,
+          429.1981981981982
+        ],
+        [
+          37.77956989247318,
+          512.0
+        ],
+        [
+          0.0,
+          512.0
+        ]
+      ],
+      "group_id": null,
+      "description": "",
+      "shape_type": "polygon",
+      "flags": {},
+      "mask": null
     }
   ],
   "imagePath": "陕西省-榆林市-12-105.png",
