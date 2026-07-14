@@ -15,7 +15,7 @@
 ![Progress Badge](https://img.shields.io/badge/Progress-93%20%2F%20171%20(54.4%25)-blue?style=for-the-badge&logo=github)
 
 ### 📈 标注进度趋势折线图
-![标注进度趋势](https://raw.githubusercontent.com/SleepyMUMU/26.7.10.ShanXi/assets/progress_chart.svg?v=1784006751)
+![标注进度趋势](https://raw.githubusercontent.com/SleepyMUMU/26.7.10.ShanXi/assets/progress_chart.svg?v=1784006807)
 
 ---
 ### 📅 每日标注聚合日志
@@ -38,7 +38,7 @@
 
 
 ---
-*📅 统计更新时间：2026-07-14 13:25:51 (UTC+8)*
+*📅 统计更新时间：2026-07-14 13:26:47 (UTC+8)*
 
 ---
 ## 👥 多人协作说明
