@@ -92,7 +92,12 @@
     "陕西省-榆林市-97-98.json": "5bd2b2b10834583efed74712f0562b01f45bc1db2ed167d1cfc9b7f2b1ead35c",
     "陕西省-榆林市-97-99.json": "29059265a4b06ca319706e40d3a067227ccbfbce575def7c36efca07e5ea3084",
     "陕西省-榆林市-98-33.json": "717c18e4859c69152ea9efe20ae748070feeb0b52edbbecda8f14d3dde77a632",
-    "陕西省-榆林市-99-116.json": "bd29b3aec094bbdeff0383aa9e9910b4973edc62ad81c519a39a7ac40de1122a"
+    "陕西省-榆林市-99-116.json": "bd29b3aec094bbdeff0383aa9e9910b4973edc62ad81c519a39a7ac40de1122a",
+    "陕西省-榆林市-76-19.json": "1c877dc47700443dd3aa146f2a5dfa95e9b91ec44f534a46c08ab086b87f7c48",
+    "陕西省-榆林市-77-13.json": "b931d535e61b408b181a4ed8c238b0e2df5a3ba7c11a39cf875d62fedc0755d3",
+    "陕西省-榆林市-74-61.json": "5ab5fa789ad3e8e83c874956b526f5d326454b18ad0e89075f1ba7b79defad40",
+    "陕西省-榆林市-76-23.json": "ba20b7c73e027912b81bcd554183e66b525aaa4b915553739f28d90c56d75d2b",
+    "陕西省-榆林市-77-18.json": "c0a42c3bed98b54e485ef579d7c26e4bb8d288f7f3e9600e03dbc3ed4e3054af"
   },
   "daily_stats": {
     "2026-07-13": {
@@ -225,8 +230,14 @@
       ]
     },
     "2026-07-15": {
-      "total_completed": 93,
-      "new_files": [],
+      "total_completed": 98,
+      "new_files": [
+        "陕西省-榆林市-74-61",
+        "陕西省-榆林市-76-19",
+        "陕西省-榆林市-76-23",
+        "陕西省-榆林市-77-13",
+        "陕西省-榆林市-77-18"
+      ],
       "strengthened_files": [
         "陕西省-榆林市-14-127",
         "陕西省-榆林市-14-134",
