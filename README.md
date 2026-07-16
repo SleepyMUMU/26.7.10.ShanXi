@@ -8,21 +8,26 @@
 | 统计项 | 数值 | 占比 / 进度条 |
 | :--- | :---: | :--- |
 | **总图片数 (Total)** | **171** | `[████████████████████]` 100.0% |
-| **已标记 (Completed)** | **98** | `[███████████░░░░░░░░░]` 57.3% |
-| **未标记 (Remaining)** | **73** | `[░░░░░░░░░░░░░░░░░░░░]` 42.7% |
+| **已标记 (Completed)** | **107** | `[█████████████░░░░░░░]` 62.6% |
+| **未标记 (Remaining)** | **64** | `[░░░░░░░░░░░░░░░░░░░░]` 37.4% |
 
 **当前总体进度：**
-![Progress Badge](https://img.shields.io/badge/Progress-98%20%2F%20171%20(57.3%25)-blue?style=for-the-badge&logo=github)
+![Progress Badge](https://img.shields.io/badge/Progress-107%20%2F%20171%20(62.6%25)-blue?style=for-the-badge&logo=github)
 
 ### 📈 标注进度趋势折线图
-![标注进度趋势](https://raw.githubusercontent.com/SleepyMUMU/26.7.10.ShanXi/assets/progress_chart.svg?v=1784170254)
+![标注进度趋势](https://raw.githubusercontent.com/SleepyMUMU/26.7.10.ShanXi/assets/progress_chart.svg?v=1784172040)
 
 ---
 ### 📅 每日标注聚合日志
 
 <details open>
-<summary><b>2026-07-16</b> : 进度 98/171 (57.3%) | 🌟 新增 0 | 🔨 加强 11 🔽</summary>
+<summary><b>2026-07-16</b> : 进度 107/171 (62.6%) | 🌟 新增 9 | 🔨 加强 11 🔽</summary>
 <br>
+  <details>
+  <summary>🌟 <b>新增文件 (9)</b> 🔽</summary>
+
+  `陕西省-榆林市-51-72`, `陕西省-榆林市-51-77`, `陕西省-榆林市-65-65`, `陕西省-榆林市-65-66`, `陕西省-榆林市-66-64`, `陕西省-榆林市-66-65`, `陕西省-榆林市-66-66`, `陕西省-榆林市-66-67`, `陕西省-榆林市-74-58`
+  </details>
   <details>
   <summary>🔨 <b>加强文件 (11)</b> 🔽</summary>
 
@@ -67,7 +72,7 @@
 
 
 ---
-*📅 统计更新时间：2026-07-16 10:50:54 (UTC+8)*
+*📅 统计更新时间：2026-07-16 11:20:40 (UTC+8)*
 
 ---
 ## 👥 多人协作说明
