@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 220" width="100%" height="220"><defs>  <linearGradient id="grid-grad" x1="0%" y1="0%" x2="0%" y2="100%">    <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.25" />    <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.0" />  </linearGradient></defs>
+  <line x1="55" y1="175.0" x2="570" y2="175.0" stroke="#e5e7eb" stroke-dasharray="4,4" stroke-width="1" />
+  <text x="45" y="179.0" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#6b7280" text-anchor="end">0%</text>
+  <line x1="55" y1="146.0" x2="570" y2="146.0" stroke="#e5e7eb" stroke-dasharray="4,4" stroke-width="1" />
+  <text x="45" y="150.0" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#6b7280" text-anchor="end">20%</text>
+  <line x1="55" y1="117.0" x2="570" y2="117.0" stroke="#e5e7eb" stroke-dasharray="4,4" stroke-width="1" />
+  <text x="45" y="121.0" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#6b7280" text-anchor="end">40%</text>
+  <line x1="55" y1="88.0" x2="570" y2="88.0" stroke="#e5e7eb" stroke-dasharray="4,4" stroke-width="1" />
+  <text x="45" y="92.0" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#6b7280" text-anchor="end">60%</text>
+  <line x1="55" y1="59.0" x2="570" y2="59.0" stroke="#e5e7eb" stroke-dasharray="4,4" stroke-width="1" />
+  <text x="45" y="63.0" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#6b7280" text-anchor="end">80%</text>
+  <line x1="55" y1="30.0" x2="570" y2="30.0" stroke="#e5e7eb" stroke-dasharray="4,4" stroke-width="1" />
+  <text x="45" y="34.0" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#6b7280" text-anchor="end">100%</text>
+  <polygon points="55.0,175 55.0,96.14035087719297 119.375,96.14035087719297 183.75,91.90058479532165 248.125,82.57309941520468 312.5,77.48538011695906 376.875,67.30994152046782 441.25,61.374269005847964 505.625,53.742690058479525 570.0,41.87134502923979 570.0,175" fill="url(#grid-grad)" />
+  <polyline points="55.0,96.14035087719297 119.375,96.14035087719297 183.75,91.90058479532165 248.125,82.57309941520468 312.5,77.48538011695906 376.875,67.30994152046782 441.25,61.374269005847964 505.625,53.742690058479525 570.0,41.87134502923979" fill="none" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+  <circle cx="55.0" cy="96.14035087719297" r="4" fill="#ffffff" stroke="#3b82f6" stroke-width="2" />
+  <text x="55.0" y="86.14035087719297" font-family="system-ui, -apple-system, sans-serif" font-size="9" font-weight="bold" fill="#2563eb" text-anchor="middle">54.4%</text>
+  <text x="55.0" y="190" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#6b7280" text-anchor="middle">07-13</text>
+  <circle cx="119.375" cy="96.14035087719297" r="4" fill="#ffffff" stroke="#3b82f6" stroke-width="2" />
+  <text x="119.375" y="190" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#6b7280" text-anchor="middle">07-14</text>
+  <circle cx="183.75" cy="91.90058479532165" r="4" fill="#ffffff" stroke="#3b82f6" stroke-width="2" />
+  <text x="183.75" y="81.90058479532165" font-family="system-ui, -apple-system, sans-serif" font-size="9" font-weight="bold" fill="#2563eb" text-anchor="middle">57.3%</text>
+  <text x="183.75" y="190" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#6b7280" text-anchor="middle">07-15</text>
+  <circle cx="248.125" cy="82.57309941520468" r="4" fill="#ffffff" stroke="#3b82f6" stroke-width="2" />
+  <text x="248.125" y="190" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#6b7280" text-anchor="middle">07-16</text>
+  <circle cx="312.5" cy="77.48538011695906" r="4" fill="#ffffff" stroke="#3b82f6" stroke-width="2" />
+  <text x="312.5" y="67.48538011695906" font-family="system-ui, -apple-system, sans-serif" font-size="9" font-weight="bold" fill="#2563eb" text-anchor="middle">67.3%</text>
+  <text x="312.5" y="190" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#6b7280" text-anchor="middle">07-17</text>
+  <circle cx="376.875" cy="67.30994152046782" r="4" fill="#ffffff" stroke="#3b82f6" stroke-width="2" />
+  <text x="376.875" y="190" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#6b7280" text-anchor="middle">07-18</text>
+  <circle cx="441.25" cy="61.374269005847964" r="4" fill="#ffffff" stroke="#3b82f6" stroke-width="2" />
+  <text x="441.25" y="51.374269005847964" font-family="system-ui, -apple-system, sans-serif" font-size="9" font-weight="bold" fill="#2563eb" text-anchor="middle">78.4%</text>
+  <text x="441.25" y="190" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#6b7280" text-anchor="middle">07-20</text>
+  <circle cx="505.625" cy="53.742690058479525" r="4" fill="#ffffff" stroke="#3b82f6" stroke-width="2" />
+  <text x="505.625" y="190" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#6b7280" text-anchor="middle">07-22</text>
+  <circle cx="570.0" cy="41.87134502923979" r="4" fill="#ffffff" stroke="#3b82f6" stroke-width="2" />
+  <text x="570.0" y="31.87134502923979" font-family="system-ui, -apple-system, sans-serif" font-size="9" font-weight="bold" fill="#2563eb" text-anchor="middle">91.8%</text>
+  <text x="570.0" y="190" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#6b7280" text-anchor="middle">07-23</text>
+</svg>
